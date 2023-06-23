@@ -16,4 +16,12 @@ jobs:
           node-version: '18'
       - run: |
           npm i -g run-func
-          gci | ? {$_.Name -match '.js'} | % { Get-Content $_ -Raw} | % { run-func "build-bookmarklet.js" build $_ }
+          gci | ? {$_.Name -match '.js'} | % { $content = Get-Content $_ -Raw; $js = run-func "build-bookmarklet.js" build $_; Out-File -FilePath ".\out\$($_.Name)" -InputObject $js}
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto-generating bookmarklets"
+      - name: fetch from main
+        run: git fetch origin main
+      - name: push code to main
+        run: git push origin HEAD:main
