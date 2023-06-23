@@ -15,5 +15,5 @@ jobs:
         with:
           node-version: '18'
       - run: |
-      npm i -g run-func
-      gci | ? {$_.Name -match '.js'} | % { Get-Content $_ -Raw} | % { run-func "build-bookmarklet.js" build $_ }
+          npm i -g run-func
+          gci | ? {$_.Name -match '.js'} | % { Get-Content $_ -Raw} | % { run-func "build-bookmarklet.js" build $_ }
