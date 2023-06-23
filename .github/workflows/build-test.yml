@@ -14,4 +14,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '18'
-      - run: gci | ? {$_.Name -match '.js'} | % { Get-Content $_ -Raw} | % { run-func "build-bookmarklet.js" build $_ }
+      - run: |
+      npm i -g run-func
+      gci | ? {$_.Name -match '.js'} | % { Get-Content $_ -Raw} | % { run-func "build-bookmarklet.js" build $_ }
