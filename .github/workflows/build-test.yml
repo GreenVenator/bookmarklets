@@ -3,6 +3,8 @@ name: Build and output bookmarklets
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - 'out/**'
     
   workflow_dispatch:
   
@@ -14,7 +16,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '18'
-      - run: |
+      - name: build and output bookmarklets
+        run: |
           npm i -g run-func
           gci | ? {$_.Name -match '.js'} | % { $content = Get-Content $_ -Raw; $js = run-func "build-bookmarklet.js" build $_; Out-File -FilePath ".\out\$($_.Name)" -InputObject $js}
       - name: stage changed files
