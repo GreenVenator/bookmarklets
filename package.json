@@ -1,0 +1,17 @@
+{
+  "name": "bookmarklets",
+  "scripts": {
+    "build": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./build-items/build.ps1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreenVenator/bookmarklets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GreenVenator/bookmarklets/issues"
+  },
+  "homepage": "https://github.com/GreenVenator/bookmarklets#readme",
+  "dependencies": {
+    "run-func": "^3.0.0"
+  }
+}
