@@ -20,6 +20,8 @@ jobs:
         run: |
           npm i -g run-func
           gci | ? {$_.Name -match '.js'} | % { $content = Get-Content $_ -Raw; $js = run-func "build-bookmarklet.js" build $_; Out-File -FilePath ".\out\$($_.Name)" -InputObject $js}
+          git config user.name 'Build pipeline'
+          git config user.email '<>'
       - name: stage changed files
         run: git add .
       - name: commit changed files
