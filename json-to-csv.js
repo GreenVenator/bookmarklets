@@ -1,23 +1,26 @@
-let data = JSON.parse(`[
-                {
-                    "type": "Repository",
-                    "databaseId": 1,
-                    "name": "GreenVenator/1",
-                    "path": "/GreenVenator/1"
-                },
-                {
-                    "type": "Repository",
-                    "databaseId": 2714884,
-                    "name": "ricardocabral/iskdaemon",
-                    "path": "/ricardocabral/iskdaemon"
-                },
-                {
-                    "type": "Repository",
-                    "databaseId": 47174652,
-                    "name": "wollmers/Image-Seek",
-                    "path": "/wollmers/Image-Seek"
-                }
-            ]`);
+let data = JSON.parse(document.promt("Enter JSON:"));
+
+// Expected format:
+// [
+//     {
+//         "type": "Repository",
+//         "databaseId": 1,
+//         "name": "GreenVenator/1",
+//         "path": "/GreenVenator/1"
+//     },
+//     {
+//         "type": "Repository",
+//         "databaseId": 2714884,
+//         "name": "ricardocabral/iskdaemon",
+//         "path": "/ricardocabral/iskdaemon"
+//     },
+//     {
+//         "type": "Repository",
+//         "databaseId": 47174652,
+//         "name": "wollmers/Image-Seek",
+//         "path": "/wollmers/Image-Seek"
+//     }
+// ]
             
 let csvBody = [];
 let keys = [];
@@ -34,3 +37,5 @@ data.forEach(n => {
 });
 
 let csv = [keys.join(","),...csvBody].join("\n");
+
+console.log(csv);
