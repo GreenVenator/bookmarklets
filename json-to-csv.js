@@ -1,4 +1,4 @@
-let data = JSON.parse(document.promt("Enter JSON:"));
+let data = JSON.parse(window.prompt("Enter JSON:"));
 
 // Expected format:
 // [
